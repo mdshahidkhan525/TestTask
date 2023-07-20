@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+https://blog.eq8.eu/til/how-to-use-bootstrap-5-in-rails-7.html
