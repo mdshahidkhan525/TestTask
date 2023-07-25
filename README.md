@@ -21,5 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* References that I follow
+1. How To Add Bootstrap
 https://blog.eq8.eu/til/how-to-use-bootstrap-5-in-rails-7.html
+
+2. Overide to login with username and emails
+https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address#create-a-login-virtual-attribute-in-the-user-model
