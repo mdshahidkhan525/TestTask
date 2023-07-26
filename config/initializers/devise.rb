@@ -314,4 +314,6 @@ Devise.setup do |config|
   # reset password
   config.reset_password_keys = [ :username ]
   config.confirmation_keys = [ :username ]
+  # update sesssion via get
+  config.sign_out_via = :get
 end
