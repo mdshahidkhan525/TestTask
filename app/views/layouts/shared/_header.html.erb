@@ -33,14 +33,16 @@
                 <a href="#" class="nav-link m-2 menu-item">Contact</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-               <%="Hi! #{current_user.username}"%>
-              </a>
+              <% if current_user %>
+                <a class="nav-link dropdown-toggle mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Hi <%= full_name(current_user)%>
+                </a>
+              <% end %>
               <ul class="dropdown-menu pt-10" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">Edit Profile</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
               </ul>
             </li>
         </ul>
