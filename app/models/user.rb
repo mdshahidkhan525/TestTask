@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include ActiveModel::Validations
   validates_with UserValidator
+  followability
 
   attr_accessor :login
 
