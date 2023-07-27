@@ -19,10 +19,10 @@
           <a class="nav-link" href="#">219</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_with(url: search_path, method: "get", class: "d-flex") do |form| %>
+        <%= form.text_field :query, placeholder: "search user..", class: 'form-control me-2' %>
+        <%= form.submit "Search", class: 'btn btn-outline-success' %>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
