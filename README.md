@@ -27,3 +27,6 @@ https://blog.eq8.eu/til/how-to-use-bootstrap-5-in-rails-7.html
 
 2. Overide to login with username and emails
 https://github.com/heartcombo/devise/wiki/How-To:-Allow-users-to-sign-in-using-their-username-or-email-address#create-a-login-virtual-attribute-in-the-user-model
+
+3. Implementing searching functionality with searchkick and elasticsearch
+https://linuxize.com/post/how-to-install-elasticsearch-on-ubuntu-20-04/
