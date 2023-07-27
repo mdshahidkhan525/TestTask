@@ -5,8 +5,7 @@ class User < ApplicationRecord
   validates_with UserValidator
   followability
   # for specific field search
-  searchkick searchable: %i[username email first_name]
-
+  searchkick word_start: %i[username first_name last_name]
   attr_accessor :login
 
   devise :database_authenticatable, :registerable,
