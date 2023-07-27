@@ -1,19 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Test Task</a>
+    <a class="navbar-brand" href="#">Circle Connect</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse pl-2" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" href="#">Posts</a>
+          <a class="nav-link" href="#">99</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link active" href="#">Followers</a>
+          <a class="nav-link" href="#">390</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link active" href="#">Following</a>
+          <a class="nav-link" href="#">219</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -37,9 +40,9 @@
                   <a class="nav-link dropdown-toggle mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Hi <%= full_name(current_user)%>
                   </a>
-                <ul class="dropdown-menu pt-10" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu pt-10 ml-10" aria-labelledby="navbarDropdown">
                   <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                    <li><a class="dropdown-item" href="#"> Requests <%= request_count(current_user)%></a></li>
+                    <li><a class="dropdown-item" href="#">Follow Requests <%= request_count(current_user)%></a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item" %></li>
                 </ul>
