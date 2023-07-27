@@ -45,13 +45,17 @@
 
                                                     <% if current_user != user%>
                                                         <td>
-                                                            <% if current_user.sent_follow_request_to?(user)%>
-                                                                <div class="widget-26-job-category bg-soft-base">
-                                                                    <span><%= link_to 'Follow', follow_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
-                                                                </div>
-                                                            <% end %>
+                                                            <div class="widget-26-job-category bg-soft-base">
+                                                                <span><%= link_to 'Follow', follow_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
+                                                            </div>
                                                             <div class="widget-26-job-category bg-soft-base">
                                                                 <span><%= link_to 'Block', block_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
+                                                            </div>
+                                                        </td>
+                                                    <% else %>
+                                                        <td>
+                                                            <div class="widget-26-job-category bg-soft-base">
+                                                                <span>You</span>
                                                             </div>
                                                         </td>
                                                     <% end %>
