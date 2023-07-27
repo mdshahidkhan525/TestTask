@@ -18,6 +18,7 @@
                                     <div class="table-responsive">
                                         <table class="table widget-26">
                                             <tbody>
+                                             <% @users.each do |user| %>
                                                 <tr>
                                                     <td>
                                                         <div class="widget-26-job-emp-img">
@@ -26,8 +27,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-title">
-                                                            <a href="#">Senior Software Engineer / Developer</a>
-                                                            <p class="m-0"><a href="#" class="employer-name">Axiom Corp.</a> <span class="text-muted time">1 days ago</span></p>
+                                                            <a href="#"><b><%=full_name(user)%></b></a>
+                                                            <p class="m-0"><%=user.username%></p>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -42,7 +43,7 @@
                                                     <td>
                                                         <div class="widget-26-job-category bg-soft-base">
                                                             <i class="indicator bg-base"></i>
-                                                            <span>Software Development</span>
+                                                            <span>Follow +</span>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -66,6 +67,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
+                                            <% end %>
                                             </tbody>
                                         </table>
                                     </div>
