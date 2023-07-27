@@ -32,19 +32,26 @@
             <li class="nav-item">
                 <a href="#" class="nav-link m-2 menu-item">Contact</a>
             </li>
-            <li class="nav-item dropdown">
-              <% if current_user %>
-                <a class="nav-link dropdown-toggle mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hi <%= full_name(current_user)%>
-                </a>
-              <% end %>
-              <ul class="dropdown-menu pt-10" aria-labelledby="navbarDropdown">
-                <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                <li><a class="dropdown-item" href="#"> Requests <%= request_count(current_user)%></a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item" %></li>
-              </ul>
-            </li>
+            <% if current_user %>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle mt-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Hi <%= full_name(current_user)%>
+                  </a>
+                <ul class="dropdown-menu pt-10" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
+                    <li><a class="dropdown-item" href="#"> Requests <%= request_count(current_user)%></a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item" %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Sign In", signin_path, class: "nav-link m-2 menu-item" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Sign Up", signup_path, class: "nav-link m-2 menu-item" %>
+              </li>
+            <% end %>
         </ul>
     </div>
   </div>
