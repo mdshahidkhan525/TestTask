@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post '/reject', to: 'followers#reject_request'
   get '/followers', to: 'followers#followers'
   get '/followings', to: 'followers#followings'
+  patch '/remove_follower', to: 'followers#remove_follower'
 end

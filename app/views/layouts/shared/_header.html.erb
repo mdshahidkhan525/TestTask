@@ -4,26 +4,28 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse pl-2" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Posts</a>
-          <a class="nav-link active" href="#">99</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Followers</a>
-          <a><%= link_to "#{current_user.followers.count}", followers_path, class:"nav-link active" %><a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Following</a>
-          <a><%= link_to "#{current_user.following.count}", followings_path, class:"nav-link active" %><a>
-        </li>
-      </ul>
-      <%= form_with(url: search_path, method: "get", class: "d-flex") do |form| %>
-        <%= form.text_field :query, placeholder: "search user..", class: 'form-control me-2' %>
-        <%= form.submit "Search", class: 'btn btn-outline-success' %>
-      <% end %>
-    </div>
+    <% if current_user %>
+      <div class="collapse navbar-collapse pl-2" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Posts</a>
+            <a class="nav-link active" href="#">99</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Followers</a>
+            <a><%= link_to "#{current_user.followers.count}", followers_path, class:"nav-link active" %><a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Following</a>
+            <a><%= link_to "#{current_user.following.count}", followings_path, class:"nav-link active" %><a>
+          </li>
+        </ul>
+        <%= form_with(url: search_path, method: "get", class: "d-flex") do |form| %>
+          <%= form.text_field :query, placeholder: "search user..", class: 'form-control me-2' %>
+          <%= form.submit "Search", class: 'btn btn-outline-success' %>
+        <% end %>
+      </div>
+    <% end %>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
             <li class="nav-item">

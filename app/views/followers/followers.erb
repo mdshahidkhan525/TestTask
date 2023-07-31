@@ -14,6 +14,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <% if @followers.any? %>
                                 <div class="result-body">
                                     <div class="table-responsive">
                                         <table class="table widget-26">
@@ -38,10 +39,10 @@
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-category">
-                                                          <span><%= link_to 'Remove', accept_path(user_id: follower.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
+                                                          <span><%= link_to 'Remove', remove_follower_path(user_id: follower.id), data: { 'turbo-method' => :patch }, class:'btn btn-outline-success'%></span>
                                                         </div>
                                                         <div class="widget-26-job-category">
-                                                          <span><%= link_to 'Block', reject_path(user_id: follower.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
+                                                          <span><%= link_to 'Block', block_path(user_id: follower.id), data: { 'turbo-method' => :patch }, class:'btn btn-outline-danger'%></span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -51,6 +52,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <% else %>
+                                <div>
+                                    <span>You don't have any active follow request</span>
+                                </div>
+                            <% end %>
                         </div>
                     </div>
                 </div>

@@ -14,41 +14,48 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="result-body">
-                                    <div class="table-responsive">
-                                        <table class="table widget-26">
-                                            <tbody>
-                                             <% @follow_requests.each do |request| %>
-                                                <tr>
-                                                    <td>
-                                                        <div class="widget-26-job-emp-img">
-                                                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Company" />
+                                <% if @follow_requests.any? %>
+                                    <div class="result-body">
+                                        <div class="table-responsive">
+                                            <table class="table widget-26">
+                                                <tbody>
+                                                <% @follow_requests.each do |request| %>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="widget-26-job-emp-img">
+                                                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Company" />
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-title">
+                                                                <a href="#"><b><%=full_name(request.followerable)%></b></a>
+                                                                <p class="m-0"><%=user_name(request.followerable)%></p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                        <div class="widget-26-job-salary-center">
+                                                            <%= user_followers(request.followerable)%> followers
                                                         </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="widget-26-job-title">
-                                                            <a href="#"><b><%=full_name(request.followerable)%></b></a>
-                                                            <p class="m-0"><%=user_name(request.followerable)%></p>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                      <div class="widget-26-job-salary-center">
-                                                        <%= user_followers(request.followerable)%> followers
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="widget-26-job-category">
-                                                          <span><%= link_to 'Confirm', accept_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
-                                                        </div>
-                                                        <div class="widget-26-job-category">
-                                                          <span><%= link_to 'Delete', reject_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <% end %>
-                                            </tbody>
-                                        </table>
+                                                        </td>
+                                                        <td>
+                                                            <div class="widget-26-job-category">
+                                                            <span><%= link_to 'Confirm', accept_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
+                                                            </div>
+                                                            <div class="widget-26-job-category">
+                                                            <span><%= link_to 'Delete', reject_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                <% end %>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
+                                <% else %>
+                                    <div>
+                                        <span>You don't have any active follow request</span>
+                                    </div>
+                                <% end %>
                                 </div>
                             </div>
                         </div>

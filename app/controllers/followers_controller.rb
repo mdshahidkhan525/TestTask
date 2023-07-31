@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class FollowersController < ApplicationController
-  before_action :find_user, only: %i[send_follow_request block_user accept_request reject_request]
+  before_action :find_user, except: %i[follow_requests followers followings]
 
   def send_follow_request
     current_user.send_follow_request_to(@user)
@@ -31,9 +31,18 @@ class FollowersController < ApplicationController
     end
   end
 
-  def block_user; end
+  def block_user
+    
+  end
 
-  def remove_follower; end
+  def remove_follower
+    follower = Followability::Relationship.find_by(followable_id: current_user, followerable_id: @user)
+     if follower.destroy
+      redirect_to followers_path, notice: 'Unfollow successfully'
+     else
+      redirect_to followers_path, notice: 'Failed to remove'
+     end
+  end
 
   def followers
     @followers = current_user.followers
