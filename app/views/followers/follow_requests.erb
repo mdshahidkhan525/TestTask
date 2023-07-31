@@ -9,7 +9,7 @@
                                 <div class="result-header">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <div class="records">Showing: <b>10</b> of <b><%=@users.count%></b> result</div>
+                                            <div class="records">Follow Requests: <b><%=@follow_requests.count%></b></div>
                                             <hr class="hr hr-blurry">
                                         </div>
                                     </div>
@@ -18,7 +18,7 @@
                                     <div class="table-responsive">
                                         <table class="table widget-26">
                                             <tbody>
-                                             <% @users.each do |user| %>
+                                             <% @follow_requests.each do |request| %>
                                                 <tr>
                                                     <td>
                                                         <div class="widget-26-job-emp-img">
@@ -27,38 +27,23 @@
                                                     </td>
                                                     <td>
                                                         <div class="widget-26-job-title">
-                                                            <a href="#"><b><%=full_name(user)%></b></a>
-                                                            <p class="m-0"><%=user.username%></p>
+                                                            <a href="#"><b><%=full_name(request.followerable)%></b></a>
+                                                            <p class="m-0"><%=user_name(request.followerable)%></p>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <div class="widget-26-job-info">
-                                                            <p class="type m-0">Full-Time</p>
-                                                            <p class="text-muted m-0">in <span class="location">London, UK</span></p>
-                                                        </div>
+                                                      <div class="widget-26-job-salary-center">
+                                                        <%= user_followers(request.followerable)%> followers
+                                                      </div>
                                                     </td>
                                                     <td>
-                                                        <div class="widget-26-job-salary-center">
-                                                            <%= user.followers.count%> followers
+                                                        <div class="widget-26-job-category">
+                                                          <span><%= link_to 'Confirm', accept_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
+                                                        </div>
+                                                        <div class="widget-26-job-category">
+                                                          <span><%= link_to 'Delete', reject_path(user_id: request.followerable.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
                                                         </div>
                                                     </td>
-
-                                                    <% if current_user != user%>
-                                                        <td>
-                                                            <div class="widget-26-job-category bg-soft-base">
-                                                                <span><%= link_to 'Follow', follow_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
-                                                            </div>
-                                                            <div class="widget-26-job-category bg-soft-base">
-                                                                <span><%= link_to 'Block', block_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
-                                                            </div>
-                                                        </td>
-                                                    <% else %>
-                                                        <td>
-                                                            <div class="widget-26-job-category bg-soft-base">
-                                                                <span>You</span>
-                                                            </div>
-                                                        </td>
-                                                    <% end %>
                                                 </tr>
                                             <% end %>
                                             </tbody>
