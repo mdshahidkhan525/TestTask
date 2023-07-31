@@ -32,15 +32,19 @@ class FollowersController < ApplicationController
   end
 
   def block_user
-    
+    if current_user.block(@user)
+      redirect_to followers_path, notice: 'Blocked successfully!!'
+    else
+      redirect_to followers_path, notice: 'Failed to Block!!'
+    end
   end
 
   def remove_follower
     follower = Followability::Relationship.find_by(followable_id: current_user, followerable_id: @user)
      if follower.destroy
-      redirect_to followers_path, notice: 'Unfollow successfully'
+      redirect_to followers_path, notice: 'Unfollow successfully!!'
      else
-      redirect_to followers_path, notice: 'Failed to remove'
+      redirect_to followers_path, notice: 'Failed to remove!!'
      end
   end
 
