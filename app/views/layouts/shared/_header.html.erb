@@ -8,15 +8,15 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="#">Posts</a>
-          <a class="nav-link" href="#">99</a>
+          <a class="nav-link active" href="#">99</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Followers</a>
-          <a class="nav-link" href="#">390</a>
+          <a><%= link_to "#{current_user.followers.count}", followers_path, class:"nav-link active" %><a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Following</a>
-          <a class="nav-link" href="#">219</a>
+          <a><%= link_to "#{current_user.following.count}", followings_path, class:"nav-link active" %><a>
         </li>
       </ul>
       <%= form_with(url: search_path, method: "get", class: "d-flex") do |form| %>

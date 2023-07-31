@@ -31,6 +31,18 @@ class FollowersController < ApplicationController
     end
   end
 
+  def block_user; end
+
+  def remove_follower; end
+
+  def followers
+    @followers = current_user.followers
+  end
+
+  def followings
+    @followings = current_user.following
+  end
+
   private
 
   def find_user

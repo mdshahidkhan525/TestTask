@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get '/requests', to: 'followers#follow_requests'
   post '/accept', to: 'followers#accept_request'
   post '/reject', to: 'followers#reject_request'
+  get '/followers', to: 'followers#followers'
+  get '/followings', to: 'followers#followings'
 end
