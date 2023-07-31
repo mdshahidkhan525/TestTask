@@ -1,0 +1,60 @@
+<div class="container">
+<div class="row">
+        <div class="col-12">
+            <div class="card card-margin">
+                <div class="card-body">
+                    <div class="row search-body">
+                        <div class="col-lg-12">
+                            <div class="search-result">
+                                <div class="result-header">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="records">Followers: <b><%=@followers.count%></b></div>
+                                            <hr class="hr hr-blurry">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="result-body">
+                                    <div class="table-responsive">
+                                        <table class="table widget-26">
+                                            <tbody>
+                                             <% @followers.each do |follower| %>
+                                                <tr>
+                                                    <td>
+                                                        <div class="widget-26-job-emp-img">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="Company" />
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-title">
+                                                            <a href="#"><b><%=full_name(follower)%></b></a>
+                                                            <p class="m-0"><%=user_name(follower)%></p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="widget-26-job-salary-center">
+                                                        <%= user_followers(follower)%> followers
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="widget-26-job-category">
+                                                          <span><%= link_to 'Remove', accept_path(user_id: follower.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
+                                                        </div>
+                                                        <div class="widget-26-job-category">
+                                                          <span><%= link_to 'Block', reject_path(user_id: follower.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <% end %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

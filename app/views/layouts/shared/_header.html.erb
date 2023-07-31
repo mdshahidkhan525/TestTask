@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-80">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Circle Connect</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,21 +8,21 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link active" href="#">Posts</a>
-          <a class="nav-link" href="#">99</a>
+          <a class="nav-link active" href="#">99</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Followers</a>
-          <a class="nav-link" href="#">390</a>
+          <a><%= link_to "#{current_user.followers.count}", followers_path, class:"nav-link active" %><a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="#">Following</a>
-          <a class="nav-link" href="#">219</a>
+          <a><%= link_to "#{current_user.following.count}", followings_path, class:"nav-link active" %><a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <%= form_with(url: search_path, method: "get", class: "d-flex") do |form| %>
+        <%= form.text_field :query, placeholder: "search user..", class: 'form-control me-2' %>
+        <%= form.submit "Search", class: 'btn btn-outline-success' %>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
         <ul class="navbar-nav ms-auto flex-nowrap">
@@ -42,7 +42,7 @@
                   </a>
                 <ul class="dropdown-menu pt-10 ml-10" aria-labelledby="navbarDropdown">
                   <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                    <li><a class="dropdown-item" href="#">Follow Requests <%= request_count(current_user)%></a></li>
+                    <li><%= link_to "Follow Requests(#{request_count(current_user)})", requests_path, class:"dropdown-item" %></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item" %></li>
                 </ul>
