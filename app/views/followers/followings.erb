@@ -41,7 +41,7 @@
                                                           <span><%= link_to 'Unfollow', accept_path(user_id: following.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-success'%></span>
                                                         </div>
                                                         <div class="widget-26-job-category">
-                                                          <span><%= link_to 'Block', reject_path(user_id: following.id), data: { 'turbo-method' => :post }, class:'btn btn-outline-danger'%></span>
+                                                          <span><%= link_to 'Block', reject_path(user_id: following.id), data: { 'turbo-method' => :patch }, class:'btn btn-outline-danger'%></span>
                                                         </div>
                                                     </td>
                                                 </tr>

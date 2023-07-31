@@ -50,7 +50,12 @@
                                                                     <span><%= link_to 'Follow', follow_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
                                                                 </div>
                                                                 <div class="widget-26-job-category bg-soft-base">
-                                                                    <span><%= link_to 'Block', block_path(user_id: user.id), data: { 'turbo-method' => :post }, remote: true %></span>
+                                                                    <% if user.blocked_by?(current_user)%>
+                                                                        <span><%= link_to 'Unblock', unblock_path(user_id: user.id), data: { 'turbo-method' => :patch }%></span>
+                                                                    <% else %>
+                                                                        <span><%= link_to 'Block', block_path(user_id: user.id), data: { 'turbo-method' => :patch } %></span>
+                                                                    <% end %>
+                                                                </div>
                                                                 </div>
                                                             </td>
                                                         <% else %>
