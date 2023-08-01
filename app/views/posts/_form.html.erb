@@ -1,0 +1,72 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container mt-20">
+<div class="profile-wrapper">
+    <div class="profile-section-user">
+        <div class="profile-cover-img"><img src="https://bootdey.com/img/Content/flores-amarillas-wallpaper.jpeg" alt=""></div>
+        <div class="profile-info-brief p-3"><img class="img-fluid user-profile-avatar" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+            <div class="text-center">
+                <h5 class="text-uppercase mb-4"><%=full_name(current_user)%></h5>
+                <p class="text-muted fz-base">Hi, Gyus I am on CircleConnect</p>
+            </div>
+        </div>
+        <!-- /.profile-info-brief -->
+        <hr class="m-0">
+        <div class="hidden-sm-down">
+            <hr class="m-0">
+            <div class="profile-info-contact p-4">
+                <h6 class="mb-3">Your Information</h6>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><strong>Username:</strong></td>
+                            <td>
+                                <h7 class="text-muted mb-0">@<%=current_user.username %></h7>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>EMAIL:</strong></td>
+                            <td>
+                                <h7 class="text-muted mb-0"><%= current_user.email %></h7>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>PHONE:</strong></td>
+                            <td>
+                                <h7 class="text-muted mb-0">01145525755</h7>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>SKYPE:</strong></td>
+                            <td>
+                                <h7 class="text-muted mb-0">Rathemes</h7>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr class="m-0">
+        </div>
+    </div>
+    <!-- /.profile-section-user -->
+    <div class="profile-section-main">
+        <div class="tab-content profile-tabs-content">
+            <div class="tab-pane active" id="profile-overview" role="tabpanel">
+                <div class="post-editor">
+                    <%= form_with model: Post.new do |form| %>
+                        <%= form.text_area :description, placeholder: "What's on your mind?", class: 'post-field' %>
+
+                        <div class="d-flex">
+                            <%= form.submit 'Post', class:'btn btn-success px-4 py-1' %>
+                            <div class="col-sm-6">
+                                <a class="btn btn-sm btn-default"><i class="fa fa-camera"></i></a>
+                                <a class="btn btn-sm btn-default"><i class="fa fa-music"></i></a>
+                                <a class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i></a>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+                <%=render 'posts/post' %>
+            </div>
+        </div>
+    </div>
+</div>
