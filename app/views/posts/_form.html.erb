@@ -8,6 +8,18 @@
                 <h5 class="text-uppercase mb-4"><%=full_name(current_user)%></h5>
                 <p class="text-muted fz-base">Hi, Gyus I am on CircleConnect</p>
             </div>
+            <div>
+                <h7 style="margin:30px">Post</h7>
+                <h7 style="margin:15px">Followers</h7>
+                <h7 style="margin:10px">Following</h7>
+            </div>
+            <div>
+                <b style="margin:40px"><%= link_to "#{current_user.posts.count}", profile_path, style: "text-decoration: none; color: #198754" %></b>
+                <b style="margin:40px"><%= link_to "#{current_user.followers.count}", followers_path, style: "text-decoration: none; color: #198754" %></b>
+                <b style="margin:40px"><%= link_to "#{current_user.following.count}", followings_path, style: "text-decoration: none; color: #198754" %></b>
+            </div>
+            <div>
+            </div>
         </div>
         <!-- /.profile-info-brief -->
         <hr class="m-0">
