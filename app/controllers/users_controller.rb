@@ -6,4 +6,8 @@ class UsersController < ApplicationController
     @users = User.search(query, match: :word_start, misspellings: { below: 1 },
                                 fields: %i[username first_name last_name])
   end
+
+  def my_profile
+    @my_posts = current_user.posts
+  end
 end

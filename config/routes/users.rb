@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     get '/signup', to: 'devise/registrations#new'
   end
   get '/search', to: 'users#search_users'
+  get '/profile', to: 'users#my_profile'
 end

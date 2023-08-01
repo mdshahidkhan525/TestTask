@@ -43,8 +43,9 @@
                   Hi <%= full_name(current_user)%>
                   </a>
                 <ul class="dropdown-menu pt-10 ml-10" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "My Profile", profile_path, class: 'dropdown-item' %></li>
                   <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %></li>
-                    <li><%= link_to "Follow Requests(#{request_count(current_user)})", requests_path, class:"dropdown-item" %></li>
+                  <li><%= link_to "Follow Requests(#{request_count(current_user)})", requests_path, class:"dropdown-item" %></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><%= link_to "Logout", destroy_user_session_path, class: "dropdown-item" %></li>
                 </ul>
