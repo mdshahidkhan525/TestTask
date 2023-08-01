@@ -32,7 +32,7 @@ class FollowersController < ApplicationController
   end
 
   def block_user
-    if current_user.block(@user)
+    if current_user.block(@user) && remove_user_from_followers?
       redirect_to followers_path, notice: 'Blocked successfully!!'
     else
       redirect_to followers_path, notice: 'Failed to Block!!'
@@ -48,12 +48,11 @@ class FollowersController < ApplicationController
   end
 
   def remove_follower
-    follower = Followability::Relationship.find_by(followable_id: current_user, followerable_id: @user)
-     if follower.destroy
+    if remove_user_from_followers?
       redirect_to followers_path, notice: 'Unfollow successfully!!'
-     else
+    else
       redirect_to followers_path, notice: 'Failed to remove!!'
-     end
+    end
   end
 
   def followers
@@ -68,5 +67,9 @@ class FollowersController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def remove_user_from_followers?
+    Followability::Relationship.find_by(followable_id: current_user, followerable_id: @user).destroy!
   end
 end
