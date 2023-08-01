@@ -65,8 +65,8 @@
                         </div>
                     <% end %>
                 </div>
-                <% if current_user.posts.any? %>
-                    <%=render 'posts/post', locals: { posts: @posts } %>
+                <% if posts.any? %>
+                    <%= render partial: 'posts/post', locals: { posts: posts } %>
                 <% end %>
             </div>
         </div>

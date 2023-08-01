@@ -8,6 +8,6 @@ class UsersController < ApplicationController
   end
 
   def my_profile
-    @my_posts = current_user.posts
+    @my_posts = current_user.posts.order(created_at: :desc)
   end
 end
