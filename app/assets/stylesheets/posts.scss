@@ -287,26 +287,14 @@ body.menubar-top .profile-wrapper {
     position: relative;
     border-radius: .25rem;
     background: #fff;
-    padding: 1rem;
-    margin-top: 1rem
-}
-
-.sp-content .sp-info {
-    font-size: .875rem;
-    color: #636c72;
-    position: absolute;
-    top: -3rem;
-    left: 80px
+    padding: 0rem;
+    margin-top: 0.2rem
 }
 
 .sp-content .sp-paragraph {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1rem
-}
-
-.sp-content .sp-paragraph:last-child {
-    margin-bottom: 0
 }
 
 .sp-content .sp-gallery img {
