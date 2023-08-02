@@ -7,6 +7,10 @@ class FollowersController < ApplicationController
     current_user.send_follow_request_to(@user)
   end
 
+  def withdraw_request
+    current_user.remove_follow_request_for(@user)
+  end
+
   def block_user
     current_user.block(@user)
   end

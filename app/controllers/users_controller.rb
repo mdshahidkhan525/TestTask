@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :find_user, only: %i[show]
+
   def search_users
     query = params[:query]
     @users = User.search(query, match: :word_start, misspellings: { below: 1 },
@@ -8,6 +10,16 @@ class UsersController < ApplicationController
   end
 
   def my_profile
-    @my_posts = current_user.posts.order(created_at: :desc)
+    @posts = current_user.posts.order(created_at: :desc)
+  end
+
+  def show_profile
+    @posts = @user.posts.order(created_at: :desc)
+  end
+
+  private
+
+  def find_user
+    @user = User.find(params[:id])
   end
 end

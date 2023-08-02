@@ -48,7 +48,7 @@
                                                             <td>
                                                                 <div class="widget-26-job-category bg-soft-base">
                                                                     <% if current_user.sent_follow_request_to?(user)%>
-                                                                        <span><%= link_to 'Withdraw Request', follow_path(user_id: user.id), data: { 'turbo-method' => :patch }%></span>
+                                                                        <span><%= link_to 'Withdraw Request', withdraw_path(user_id: user.id), data: { 'turbo-method' => :patch }%></span>
                                                                     <% else %>
                                                                         <span><%= link_to 'Follow', follow_path(user_id: user.id), data: { 'turbo-method' => :post }%></span>
                                                                     <% end %>

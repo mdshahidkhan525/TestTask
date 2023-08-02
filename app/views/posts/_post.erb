@@ -3,7 +3,7 @@
         <div class="stream-post">
             <div class="sp-author">
                 <a href="#" class="sp-author-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt=""></a>
-                <h6 class="sp-author-name"><%= full_name(current_user)%></h6>
+                <h6 class="sp-author-name"><%= full_name(post.user)%></h6>
                 <div class="sp-info sp-pad"><%= time_ago_in_words(post.created_at)%> ago</div>
             </div>
             <div class="sp-content">
