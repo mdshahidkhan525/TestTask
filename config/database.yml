@@ -25,3 +25,4 @@ test:
 production:
   <<: *default
   database: 'circleconnect_prod'
+  url: <%= ENV['DATABASE_URL'] %>
