@@ -11,11 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_01_065440) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "followability_relationships", force: :cascade do |t|
     t.string "followerable_type", null: false
-    t.integer "followerable_id", null: false
+    t.bigint "followerable_id", null: false
     t.string "followable_type", null: false
-    t.integer "followable_id", null: false
+    t.bigint "followable_id", null: false
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_065440) do
 
   create_table "likes", force: :cascade do |t|
     t.string "likeable_type", null: false
-    t.integer "likeable_id", null: false
+    t.bigint "likeable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable"
@@ -36,7 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_01_065440) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
