@@ -1,0 +1,20 @@
+<div class="profile-section-main">
+<div class="tab-content profile-tabs-content">
+    <div class="tab-pane active" id="profile-overview" role="tabpanel">
+        <div class="post-editor">
+          <%= form_with model: @post, url: post_path(@post), method: :patch do |form| %>
+              <%= form.text_area :description, placeholder: "What's on your mind?", class: 'post-field' %>
+              <div class="d-flex">
+                  <%= form.submit 'Update', class:'btn btn-success px-4 py-1' %>
+                  <div class="col-sm-6">
+                      <a class="btn btn-sm btn-default"><i class="fa fa-camera"></i></a>
+                      <a class="btn btn-sm btn-default"><i class="fa fa-music"></i></a>
+                      <a class="btn btn-sm btn-default"><i class="fa fa-map-marker"></i></a>
+                  </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

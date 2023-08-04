@@ -5,6 +5,13 @@
                 <a href="#" class="sp-author-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt=""></a>
                 <h6 class="sp-author-name"><%= full_name(post.user)%></h6>
                 <div class="sp-info sp-pad"><%= time_ago_in_words(post.created_at)%> ago</div>
+                <div class="dropdown">
+                    <a class="dropbtn" href="#" style="text-decoration: none; color: black;"> . . . </a>
+                    <div class="dropdown-content">
+                        <%= link_to "Edit", edit_post_path(post.id), data: { 'turbo-method' => :get }  %>
+                        <%= link_to "Delete", post_path(post.id), data: { 'turbo-method' => :delete } %>
+                    </div>
+                </div>
             </div>
             <div class="sp-content">
                 <p class="sp-paragraph mb-0"><%= post.description %></p>
